@@ -2,7 +2,7 @@ var app = require('express')();
 var express = require('express');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -50,6 +50,6 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('typing', data);
     })
 })
-http.listen(port, function () {
+http.listen(port,'0.0.0.0', function () {
     console.log('listening on *: ' + port);
 });

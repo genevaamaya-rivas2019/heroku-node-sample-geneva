@@ -1,7 +1,7 @@
 var myName = "";
 var users = [""];
 $(document).ready(function () {
-    var socket = io.connect('http://localhost:5000');
+    var socket = io();
     socket.emit("request_user", "REQUEST");
     var message = $("#message");
     var username = $("#username");
